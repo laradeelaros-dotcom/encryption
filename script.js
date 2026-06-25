@@ -14,16 +14,19 @@ function encryptText (baseText, shiftKey ) {
     for (let i = 0; i < baseText.length; i++) {
         let currentLetter = baseText[i];
 
-//Se for um espaço adiciona ao resultado sem altera-lo
-        if (currentLetter === " "){
-            resultText += " "
-        } else {
-            let codeAscii = baseText.charCodeAt(i);
-
-            let codeNewAscii = (codeAscii - 65 + shiftKey) % 26 +65; //forçar o código ASCII a ficar dentro do intervalo das letras maiúsculas (A-Z) e retornar ao início do alfabeto caso ultrapasse o Z
+//Obter o código ASCII da letra atual
+        let asciiCode = baseText.charCodeAt(i);
+//Se é uma letra maiuscula de A - Z
+        if (asciiCode >= 65 && asciiCode <=90){
+//Se for, faça o calculo.
+//forçar o código ASCII a ficar dentro do intervalo das letras maiúsculas (A-Z) e retornar ao início do alfabeto caso ultrapasse o Z
+            let codeNewAscii = (asciiCode - 65 + shiftKey) % 26 +65; 
+//Transformar o código ASCII de volta para uma letra
             let newLetter = String.fromCharCode(codeNewAscii);
-
             resultText += newLetter;
+        } else {
+             //Se não for uma letra maiúscula, adiciona o caractere original ao resultado
+            resultText += currentLetter;
         }    
 
     }

@@ -46,3 +46,21 @@ encryptButton.addEventListener('click', function () {
     const finalResult = encryptText(typedText, keyValue);
     resultField.innerText = finalResult;
 });
+
+//Descriptografar
+decryptButton.addEventListener('click', function(){
+    const typedText = textField.value;
+    const keyValue = parseInt(keyField.value);
+
+    if (isNaN(keyValue)) {
+        console.error("ERRO: A chave digitada não é um número válido!");
+        resultField.innerText = "Por favor, digite um número válido para a chave.";
+        return;
+    }
+//Matemática modular
+//calcular a diferença para 26
+    const reverseKey = 26 - (keyValue % 26);
+    const finalResult = encryptText(typedText, reverseKey);
+
+    resultField.innerText = finalResult;
+});

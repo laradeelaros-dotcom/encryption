@@ -13,16 +13,24 @@
 </head>
 <body>
     <h1>Encrypt</h1>
+    <details id="help">
+    <summary>Help?</summary>
+<ul>
+    <li>Write the text in the main box.</li>
+    <li>Set the numerical offset.</li>
+    <li>Click Encrypt to encrypt or Decrypt to decrypt.</li>
+</ul>
+</details>
     <textarea id="textarea" placeholder="type your message here"></textarea>
 
     <p>select the shift key</p>
     <input id="numberKey" type="number" placeholder="ex: 3">
-
+<div class="button-group">
     <button id="button_encrypt">Encrypt</button>
     <button id="button_decrypt">Decrypt</button>
-
-    <h2>Result: </h2>
-    <p id="outputResult">...</p>
+</div>
+    <h2>Result </h2>
+    <p id="outputResult">Your message will appear here.</p>
     <script src="script.js"></script>
 </body>
 </html>
